@@ -1,4 +1,4 @@
- * How to use the program:
+ - How to use the program:
  + Run the program "console.yml.rb".
  + Enter Rep [By default "$" is the Rep]
  + Presenting in front of you will be this message:
@@ -11,4 +11,9 @@
  + Try and test any command
  ```
  REP = "$"
+ ```
+
+ - Current version
+ ```
+ 0.0.1
  ```
