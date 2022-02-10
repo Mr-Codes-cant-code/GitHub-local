@@ -9,3 +9,6 @@
  + Input the word "help"
  + Search/Browse through the commands
  + Try and test any command
+ ```
+ REP = "$"
+ ```
