@@ -14,7 +14,7 @@ if input_rep == rep
   new_br = "new.branch" #check #
   del_br = "del.branch" #check #
   rel_all = "rel-all.items"
-  rb = ".rb" #check #
+  rb = ".vis" #check #
   cp_rep = "copy.index" #check
   eexit = "exit"
   ps_all = ".ps.all-rel.items"
@@ -185,7 +185,7 @@ generate_random(1, 28)
     end
     tango += 1
     tang = tango
-    File.open("console.yml.rb", "r+") do |file|
+    File.open("Local-git/console.yml.rb", "r+") do |file|
        trash = file.readline()
        file.write("tango = ")
        file.write(tang)
@@ -201,7 +201,7 @@ generate_random(1, 28)
     if new_rep_length >= 2
       puts "invalid rep"
     else
-      File.open("console.yml.rb", "r+") do |file|
+      File.open("Local-git/console.yml.rb", "r+") do |file|
         file.write('rep = "')
         file.write($new_repi)
         file.write('"')
@@ -216,7 +216,7 @@ generate_random(1, 28)
     File.delete(del_brn)
     tango -= 1
     tang = tango
-    File.open("console.yml.rb", "r+") do |file|
+    File.open("Local-git/console.yml.rb", "r+") do |file|
        trash = file.readline()
        file.write("tango = ")
        file.write(tang)
@@ -259,7 +259,6 @@ generate_random(1, 28)
     require "io/console"
     trash = $stdin.getpass
     end
-    puts ""
   end
    else
   require "io/console"
