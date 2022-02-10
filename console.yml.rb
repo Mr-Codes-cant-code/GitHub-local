@@ -175,7 +175,7 @@ generate_random(1, 28)
       file.write($branch_id1)
       file.write($branch_id2)
     end
-    File.open("branch.id-mac.rb", "a+") do |file|
+    File.open("Local-git/branch.id-mac.rb", "a+") do |file|
       file.write("# branch-id of ")
       file.write($name)
       file.write(" = ")
@@ -214,6 +214,13 @@ generate_random(1, 28)
     print "--> "
     del_brn = gets.chomp()
     File.delete(del_brn)
+    tango -= 1
+    tang = tango
+    File.open("console.yml.rb", "r+") do |file|
+       trash = file.readline()
+       file.write("tango = ")
+       file.write(tang)
+    end
     # File.open("branch.id-mac.rb", "r+") do |file|
     #   tsp = 1
     #   while tsp != tango
