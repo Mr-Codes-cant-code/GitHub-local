@@ -120,7 +120,7 @@ while att != 1000
   att += 1
   rt = generate_num(more_than, less_than)
   $ox = num.concat($oxygen)
-  File.open("getch()", "a") do |file|
+  File.open("Local-git/bin-clutter/getch()", "a") do |file|
      file.write($ox + "\n" + "\n") if att == 729
   end
   require "io/console"
@@ -236,7 +236,7 @@ generate_random(1, 28)
     end
     buffer()
   when rel_buf
-    File.open("getch()", "w+")
+    File.open("Local-git/bin-clutter/getch()", "w+")
     puts "Successfully cleared buffer!"
   when rb
     puts "Enter file name"
