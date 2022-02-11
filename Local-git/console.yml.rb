@@ -15,9 +15,10 @@ if input_rep == rep
   del_br = "del.branch" #check #
   rel_all = "rel-all.items"
   rb = ".vis" #check #
-  cp_rep = "copy.index" #check
+  cp_rep = "copy.branch" #check
   eexit = "exit"
   ps_all = ".ps.all-rel.items"
+  ps = ".push"
 
 puts "Entered rep successfully!"
 clamp = 0
@@ -145,7 +146,7 @@ generate_random(1, 28)
     $name = @name
   end
   end
-    case code
+case code
   when help
     puts "List of commands and their uses:"
     print new_rep
@@ -159,22 +160,34 @@ generate_random(1, 28)
     print rb
     puts " - Gives source code of any file in the directory"
     print cp_rep
-    puts " - Makes a copy of 'index.rb' file"
+    puts " - Makes a copy of a branch file"
     print help
     puts " - Shows a list of commands and their uses"
     print eexit
     puts " - Exits the program"
+    print ps
+    puts "Pushes a branch to 'index.rb'"
+  when ps
+
+    puts "Enter branch name "
+    print "--> "
+    file_name = gets.chomp()
+
+    readData = File.open(file_name)
+    data = readData.read
+
+    File.open("index.rb", "w+") do |file|
+      file.write("
+    ")
+      file.write(data)
+    end
+    puts "Branch successfully merged!"
   when new_br
     puts "Enter new branch name"
     print "--> "
     new_brn = gets.chomp()
     new_branch = Branch.new(new_brn)
     new_branch.id_gen()
-    File.open(new_brn, "w+") do |file|
-      file.write("# branch-id = ")
-      file.write($branch_id1)
-      file.write($branch_id2)
-    end
     File.open("Local-git/branch.id-mac.rb", "a+") do |file|
       file.write("# branch-id of ")
       file.write($name)
@@ -183,13 +196,43 @@ generate_random(1, 28)
       file.write("
       ")
     end
-    tango += 1
-    tang = tango
-    File.open("Local-git/console.yml.rb", "r+") do |file|
-       trash = file.readline()
-       file.write("tango = ")
-       file.write(tang)
-    end
+    puts "Enter type of branch [Copy of 'index.rb'(c) / Empty(e)]"
+    cc = "c"
+    ee = "e"
+    print "--> "
+    type_of_branch = gets.chomp()
+    if type_of_branch == cc
+      index_data = File.open("index.rb")
+      read_index_data = index_data.read
+      File.open(new_brn, "w+") do |file|
+        file.write("# branch-id = ")
+        file.write($branch_id1)
+        file.write($branch_id2)
+        file.write(read_index_data)
+      end
+      tango += 1
+      tang = tango
+      File.open("Local-git/console.yml.rb", "r+") do |file|
+         trash = file.readline()
+         file.write("tango = ")
+         file.write(tang)
+      end
+      elsif type_of_branch == ee
+        File.open(new_brn, "w+") do |file|
+          file.write("# branch-id = ")
+          file.write($branch_id1)
+          file.write($branch_id2)
+        end
+        tango += 1
+        tang = tango
+        File.open("Local-git/console.yml.rb", "r+") do |file|
+           trash = file.readline()
+           file.write("tango = ")
+           file.write(tang)
+        end
+      else
+        "invalid type"
+      end
     buffer()
   when eexit
     exit
@@ -234,12 +277,16 @@ generate_random(1, 28)
     # end
     buffer()
   when cp_rep
-    indexcc = File.open("index.rb", "r") do |file|
-      $file_data = file.read
-    end
-    name = ("index-copy.rb")
-    File.open(name, "w+") do |file|
-      file.write($file_data)
+    puts "Enter branch name you want to copy"
+    print "--> "
+    branch_cp_rep = gets.chomp()
+    readDsta = File.open(branch_cp_rep)
+    dateec = readDsta.read
+    puts "Enter name for branch copy"
+    print "--> "
+    copy_branch_name = gets.chomp()
+    File.open(copy_branch_name, "w+") do |file|
+      file.write(dateec)
     end
     buffer()
   when rel_buf
@@ -253,7 +300,7 @@ generate_random(1, 28)
       data_disc = file.read
       puts data_disc
       buffer()
-    end
+end
   else
     puts "invalid command"
     require "io/console"
