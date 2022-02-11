@@ -1,7 +1,7 @@
 rep = "$"
 tango = 0
 # Choco 2.4.7 cc
-
+#print "update"
 print "Enter rep: "
 input_rep = gets.chomp()
 

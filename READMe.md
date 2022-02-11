@@ -4,7 +4,7 @@
  + Presenting in front of you will be this message:
  ```
  Entered REP successfully!
- $
+ $ 
  ```
  + Input the word "help"
  + Search/Browse through the commands
