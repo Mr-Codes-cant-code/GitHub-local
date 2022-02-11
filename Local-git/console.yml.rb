@@ -194,7 +194,7 @@ case code
       file.write(" = ")
       file.write($branch_id2)
       file.write("
-      ")
+")
     end
     puts "Enter type of branch [Copy of 'index.rb'(c) / Empty(e)]"
     cc = "c"

@@ -7,4 +7,3 @@
  - New copy branch option [un-registered]
  - Relocation of 'console.yml.rb' and addition of 'Console.rb'
  - Bug fixes
-()
