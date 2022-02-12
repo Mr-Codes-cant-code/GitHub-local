@@ -16,9 +16,9 @@ if input_rep == rep
   rel_all = "rel-all.items"
   rb = ".vis" #check #
   cp_rep = "copy.branch" #check
-  eexit = "exit"
+  eexit = "exit" #check #
   ps_all = ".ps.all-rel.items"
-  ps = ".push"
+  ps = ".push"  #check #
 
 puts "Entered rep successfully!"
 clamp = 0
@@ -166,20 +166,37 @@ case code
     print eexit
     puts " - Exits the program"
     print ps
-    puts "Pushes a branch to 'index.rb'"
+    puts " - Pushes a branch to 'index.rb'"
   when ps
 
-    puts "Enter branch name "
+    puts "Enter the name of the branch you want to push"
     print "--> "
     file_name = gets.chomp()
 
-    readData = File.open(file_name)
-    data = readData.read
+    File.open(file_name, "r") do |file|
+      $data = file.read
+      $data = $data.split("$")
+    end
 
     File.open("index.rb", "w+") do |file|
       file.write("
     ")
-      file.write(data)
+      file.write($data[1])
+    end
+    k = "k"
+    d = "d"
+    puts "Would you like to keep the branch or delete it [keep(k)/delete(d)]"
+    choice = gets.chomp()
+    if choice == k
+    elsif choice == d
+      tango -= 1
+      tang = tango
+      File.open("Local-git/console.yml.rb", "r+") do |file|
+         trash = file.readline()
+         file.write("tango = ")
+         file.write(tang)
+      end
+      File.delete(file_name)
     end
     puts "Branch successfully merged!"
   when new_br
@@ -208,6 +225,8 @@ case code
         file.write("# branch-id = ")
         file.write($branch_id1)
         file.write($branch_id2)
+        file.write(" $
+ ")
         file.write(read_index_data)
       end
       tango += 1
