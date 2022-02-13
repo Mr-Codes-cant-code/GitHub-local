@@ -15,7 +15,7 @@ if input_rep == rep
   del_br = "del.branch" #check #
   rel_all = "rel-all.items"
   rb = ".vis" #check #
-  cp_rep = "copy.branch" #check
+  cp_rep = "copy.branch" #check #
   eexit = "exit" #check #
   ps_all = ".ps.all-rel.items"
   ps = ".push"  #check #
@@ -241,6 +241,8 @@ case code
           file.write("# branch-id = ")
           file.write($branch_id1)
           file.write($branch_id2)
+          file.write(" $
+")
         end
         tango += 1
         tang = tango
@@ -300,12 +302,35 @@ case code
     print "--> "
     branch_cp_rep = gets.chomp()
     readDsta = File.open(branch_cp_rep)
-    dateec = readDsta.read
-    puts "Enter name for branch copy"
+    $dateec = readDsta.read
+    $dateec = $dateec.split("$")
+    puts "Enter name for new copy branch"
     print "--> "
     copy_branch_name = gets.chomp()
+    new_branch = Branch.new(copy_branch_name)
+    new_branch.id_gen()
+    File.open("Local-git/branch.id-mac.rb", "a+") do |file|
+      file.write("# branch-id of ")
+      file.write($name)
+      file.write(" = ")
+      file.write($branch_id2)
+      file.write("
+")
+end
     File.open(copy_branch_name, "w+") do |file|
-      file.write(dateec)
+      file.write("# branch-id = ")
+      file.write($branch_id1)
+      file.write($branch_id2)
+      file.write(" $
+")
+      file.write($dateec[1])
+    end
+    tango += 1
+    tang = tango
+    File.open("Local-git/console.yml.rb", "r+") do |file|
+       trash = file.readline()
+       file.write("tango = ")
+       file.write(tang)
     end
     buffer()
   when rel_buf
