@@ -25,9 +25,10 @@
   ```
   # Current Day - 3
    - Updates - # 0.0.1
-   
+
  # Update # 0.0.2 !
   - The first update for GitHub-local!
+  
  # What's new?
   - New branch sub-groups
   - The new push file feature (Type help to know more in 'Console.rb')
