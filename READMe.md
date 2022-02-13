@@ -17,6 +17,15 @@
  ```
  # 0.0.2
  ```
+ # The Update Marathon!
+  - The update Marathon is a 19 day event in which 10 updates will be released at the end of which 'GitHub-local' version will be # 0.1.0
+  - The time-table is as follows
+  ```
+  Update Days - Day2, Day6, Day8, Day9, Day10, Day11, Day13, Day15, Day17, Day19
+  ```
+  # Current Day - 3
+   - Updates - # 0.0.1
+   
  # Update # 0.0.2 !
   - The first update for GitHub-local!
  # What's new?
