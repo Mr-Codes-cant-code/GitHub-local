@@ -23,12 +23,12 @@
   ```
   Update Days - Day2, Day6, Day8, Day9, Day10, Day11, Day13, Day15, Day17, Day19
   ```
-  # Current Day - 3
+  # Current Day - 4
    - Updates - # 0.0.1
 
  # Update # 0.0.2 !
   - The first update for GitHub-local!
-  
+
  # What's new?
   - New branch sub-groups
   - The new push file feature (Type help to know more in 'Console.rb')
