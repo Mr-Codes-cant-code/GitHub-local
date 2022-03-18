@@ -1,4 +1,6 @@
- # How to use the program:
+# # Discontinued
+
+# How to use the program:
  + Run the program "Console.rb".
  + Enter Rep [By default "$" is the Rep]
  + Presenting in front of you will be this message:
